@@ -1,6 +1,6 @@
 # Clientes y Servicios con Spring JPA
 
-Desarrollo de la capa de acceso a datos con Spring JPA e hibernate como herramienta de ORM.
+Desarrollo de la capa de acceso a datos con Spring JPA e Hibernate como herramienta de ORM.
 
 Es importante observar la fecha de modificación de los archivos del proyecto.
 
