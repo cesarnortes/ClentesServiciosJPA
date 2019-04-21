@@ -38,6 +38,8 @@
     <version>5.4.2.Final</version>
 </dependency>
   
+      <!-- la dependencia junit es necesaria para puerbas de testeo de la aplicación por lo que podemos omitirla en el POM.xml  -->
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
