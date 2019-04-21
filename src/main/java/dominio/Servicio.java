@@ -8,7 +8,7 @@ import java.util.Date;
  * The persistent class for the tservicios database table.
  * 
  */
-@Entity
+@Entity//es necesario
 @Table(name="tservicios")
 @NamedQuery(name="Servicio.findAll", query="SELECT s FROM Servicio s")
 public class Servicio implements Serializable {
@@ -26,6 +26,7 @@ public class Servicio implements Serializable {
 	@Column(name="Fecha")
 	private Date fecha;
 
+	//
 	//bi-directional many-to-one association to Cliente
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="IdCliente", referencedColumnName="IdCliente")
