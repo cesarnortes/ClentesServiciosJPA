@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+						   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						   http://www.springframework.org/schema/aop
+        				   http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+        				   http://www.springframework.org/schema/tx
+        				   http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+        				   
+
+
+	
+	<!-- beans necesarios para spring -->
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+	<!-- beans necesarios para generar el valor de la variable de entityManager-->
+	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="packagesToScan" value="dominioMyAcount"/>
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter"></property>
+	</bean>
+
+
+	<!-- beans necesarios para generar las propiedades del bean entityManagerFactory-->
+	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+	 	<property name="database" value="MYSQL"/>		
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+	</bean>
+
+    
+    <!-- beans necesarios para generar las propiedades del bean entityManagerFactory y los datos sobre la conexion a la Base de datos-->				   
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://192.168.1.109:3306/myaccountv01" />
+		<property name="username" value="externo1" />
+		<property name="password" value="admin" />
+	</bean>
+        		
+        		
+	<!-- beans necesarios para el  manejo de transacciones de spring en jpa-->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
+    
+   
+
+	<!-- beans necesarios para generar las propiedades del bean entityManagerFactory-->
+		<bean id="servicioDao" class="dao.ServicioDao"/>
+		<bean id="clienteDao" class="dao.ClienteDao"/>
+	<!-- El nombre de los beans se empieza por minuscula por convencion-->
+
+	
+		<!-- otra forma seria crear un bean aqui de la clase modelo y llamar al bean desde aplicationcontext en la principal
+		en este caso los beans los llamo desde el contructor de la clase modelo y su instancia en la clase principal y 
+		pienso que no seria necesario crear los bean de os dao puesto que con la anotación de @PersistenceContext ya inyetaria los valores del entityManager-->
+	
+	
+	
+	
+
+</beans>

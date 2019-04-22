@@ -14,14 +14,14 @@ public interface IModelo {
 	void alta(Cliente cliente);
 	void modificacion(Cliente cliente);
 	void baja(Cliente cliente);
-	Servicio consultaId(Cliente cliente);
-	List<Cliente> ConsultaAllServicios();
+	Cliente consultaIdCliente(Cliente cliente);
+	List<Cliente> ConsultaAllClientes();
 	
 	void alta(Servicio servicio);
 	void modificacion(Servicio servicio);
 	void baja(Servicio servicio);
-	Servicio consultaId(Servicio servicio);
-	List<Servicio> ConsultaAllClientes();
+	Servicio consultaIdServicio(Servicio servicio);
+	List<Servicio> ConsultaAllServicios();
 	
 	
 }
