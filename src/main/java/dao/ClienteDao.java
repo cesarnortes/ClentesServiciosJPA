@@ -6,9 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import dominio.Cliente;
+
+import dominio2.Cliente;
   
 @Repository
 @Transactional
@@ -48,18 +50,29 @@ public class ClienteDao implements ICliente {
 
 	}
 
+	@Transactional
 	public void baja(Cliente cliente) {
 		// TODO Auto-generated method stub
 		
+	//if(em.contains(cliente))
+		
+		//em.createNativeQuery("DELETE FROM tclientes WHERE id=" + cliente.getIdCliente());
+		
+		em.remove(em.contains(cliente) ? cliente : em.merge(cliente));
+/*
+		try {
 		em.remove(cliente);
-
+		}catch (DataAccessException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} */
 	}
 	
 	@Transactional(readOnly = true)
-	public Cliente consultaId(Cliente cliente) {
+	public Cliente consultaId(int idCliente) {
 		// TODO Auto-generated method stub
 		
-		return (Cliente) em.find(Cliente.class, cliente.getIdCliente());
+		return (Cliente) em.find(Cliente.class, idCliente);
 	}
 	
 	@Transactional(readOnly = true)

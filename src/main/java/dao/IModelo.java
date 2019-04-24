@@ -2,8 +2,8 @@ package dao;
 
  import java.util.List;
 
-import dominio.Cliente;
-import dominio.Servicio;
+import dominio2.Cliente;
+import dominio2.Servicio;
 
 public interface IModelo {
 	
@@ -14,13 +14,13 @@ public interface IModelo {
 	void alta(Cliente cliente);
 	void modificacion(Cliente cliente);
 	void baja(Cliente cliente);
-	Cliente consultaIdCliente(Cliente cliente);
+	Cliente consultaIdCliente(int idCliente);
 	List<Cliente> ConsultaAllClientes();
 	
 	void alta(Servicio servicio);
 	void modificacion(Servicio servicio);
 	void baja(Servicio servicio);
-	Servicio consultaIdServicio(Servicio servicio);
+	Servicio consultaIdServicio(int idServicio);
 	List<Servicio> ConsultaAllServicios();
 	
 	

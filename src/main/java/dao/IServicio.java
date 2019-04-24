@@ -2,14 +2,14 @@ package dao;
 
  import java.util.List;
 
-import dominio.Servicio;
+import dominio2.Servicio;
 
 public interface IServicio {
 	
 	void alta(Servicio servicio);
 	void modificacion(Servicio servicio);
 	void baja(Servicio servicio);
-	Servicio consultaId(Servicio servicio);
+	Servicio consultaId(int idServicio);
 	List<Servicio> ConsultaAll();
 
 }

@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import dominio.Servicio;
+import dominio2.Servicio;
 
 @Repository
 @Transactional
@@ -48,14 +48,20 @@ public class ServicioDao implements IServicio {
 	public void baja(Servicio servicio) {
 		// TODO Auto-generated method stub
 
-		em.remove(servicio);
+
+		em.remove(em.contains(servicio) ? servicio : em.merge(servicio));
+
+		
+	//	em.remove(servicio);
+
 	}
 	
+	
 	@Transactional(readOnly = true)
-	public Servicio consultaId(Servicio servicio) {
+	public Servicio consultaId(int idServicio) {
 		// TODO Auto-generated method stub
 		
-		return (Servicio) em.find(Servicio.class, servicio.getIdServicio());
+		return (Servicio) em.find(Servicio.class, idServicio);
 	
 	}
 	

@@ -6,8 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
-import dominio.Cliente;
-import dominio.Servicio;
+import dominio2.Cliente;
+import dominio2.Servicio;
 
 @Transactional
 public class ModeloDao implements IModelo {
@@ -52,10 +52,6 @@ public class ModeloDao implements IModelo {
 	// y la aplicación seguiria funcionando con una modificación lo mas minima en el
 	// código de la aplicacion
 
-	
-	
-	
-	
 	public void alta(Cliente cliente) {
 		// TODO Auto-generated method stub
 
@@ -73,66 +69,76 @@ public class ModeloDao implements IModelo {
 	public void baja(Cliente cliente) {
 		// TODO Auto-generated method stub
 
-		for (Servicio servicio : cliente.getServicios())
-			this.servicioDao.baja(servicio);
+		
+	/*	
+		if (cliente.getServicios().size() > 0) {
+			System.out.println("Dentro del if");
+			
+			for (Servicio servicio : cliente.getServicios()) {
+				this.servicioDao.baja(servicio);
+				cliente.removeServicio(servicio);
+			System.out.println(servicio.getDescripcion());}
 
+		}
+		
+		System.out.println("fuera del if");
+		System.out.println(cliente.getServicios().size());
+
+		
+*/
 		this.clienteDao.baja(cliente);
-
+		
 	}
 
-	public Cliente consultaIdCliente(Cliente cliente) {
+	public Cliente consultaIdCliente(int idCliente) {
 		// TODO Auto-generated method stub
-		
-		
-		return this.consultaIdCliente(cliente);
-		
+
+		return this.clienteDao.consultaId(idCliente);
+
 	}
 
 	public List<Cliente> ConsultaAllClientes() {
 		// TODO Auto-generated method stub
-		
+
 		return this.clienteDao.ConsultaAll();
-	
+
 	}
 
-	
-	
 	////////////////////////////////////////////////////
-	
-	
+
 	public void alta(Servicio servicio) {
 		// TODO Auto-generated method stub
-		
+
 		this.servicioDao.alta(servicio);
 
 	}
 
 	public void modificacion(Servicio servicio) {
 		// TODO Auto-generated method stub
-		
+
 		this.servicioDao.modificacion(servicio);
 
 	}
 
 	public void baja(Servicio servicio) {
 		// TODO Auto-generated method stub
-		
+
 		this.servicioDao.baja(servicio);
 
 	}
 
-	public Servicio consultaIdServicio(Servicio servicio) {
+	public Servicio consultaIdServicio(int idServicio) {
 		// TODO Auto-generated method stub
-		
-		return this.servicioDao.consultaId(servicio);
-	
+
+		return this.servicioDao.consultaId(idServicio);
+
 	}
 
 	public List<Servicio> ConsultaAllServicios() {
 		// TODO Auto-generated method stub
-		
+
 		return this.servicioDao.ConsultaAll();
-	
+
 	}
 
 }

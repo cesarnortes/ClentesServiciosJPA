@@ -1,9 +1,9 @@
-package dominio;
+package dominio2;
 
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.persistence.Entity;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * The persistent class for the tservicios database table.
