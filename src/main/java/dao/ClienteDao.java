@@ -30,6 +30,10 @@ public class ClienteDao implements ICliente {
 		this.em = em;
 	}
 
+	
+	/////////////////////////////////////////////////////////
+	
+	
 	public void alta(Cliente cliente) {
 		// TODO Auto-generated method stub
 		

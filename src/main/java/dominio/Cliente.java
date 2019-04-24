@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * The persistent class for the tclientes database table.
- * 
+ * @EntityScan(basePackages = "your.entities.pakage")
  */
 @Entity
 @Table(name="tclientes")

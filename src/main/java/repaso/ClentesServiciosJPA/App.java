@@ -1,5 +1,8 @@
 package repaso.ClentesServiciosJPA;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import dao.ModeloDao;
 import dominio.Cliente;
 import dominio.Servicio;
@@ -28,6 +31,9 @@ public class App
     	cliente2.setNombre("Carlos");
     	cliente2.setTelefono("956857451");
     
+    	Cliente cliente3 = new Cliente();
+    	cliente2.setNombre("Cesar");
+    	cliente2.setTelefono("616487511");
     	
     	Servicio servicio1 = new Servicio();
     	servicio1.setDescripcion("Servicio 1");
@@ -37,6 +43,11 @@ public class App
     	servicio2.setDescripcion("Servicio 4");
     	servicio2.setFecha(datesql);
     	
+    	List<Servicio> listaServicioCliente1= new ArrayList<Servicio>();
+    	listaServicioCliente1.add(servicio1);
+    	listaServicioCliente1.add(servicio2);
+    	cliente1.setServicios(listaServicioCliente1);
+
     	
     	
     	Servicio servicio3 = new Servicio();
@@ -55,14 +66,33 @@ public class App
     	servicio6.setDescripcion("Servicio 6");
     	servicio6.setFecha(datesql);
     	
-    	
-    	//damos de alta los clientes y seguido sus servicios
-    	
-    	
-    	
+    	List<Servicio> listaServicioCliente2= new ArrayList<Servicio>();
+    	listaServicioCliente2.add(servicio3);
+    	listaServicioCliente2.add(servicio4);
+    	listaServicioCliente2.add(servicio5);
+    	listaServicioCliente2.add(servicio6);
+    	cliente2.setServicios(listaServicioCliente2);
+
+    	//damos de alta los clientes con sus servicios seguido sus servicios
+    	modeloDao.alta(cliente3);
+    	modeloDao.alta(cliente1);
+    	modeloDao.alta(cliente2);
     	
     	//consultamos los clientes y comoribamos que extrae los datos derivado de las otras tablas como los servicios
     	
+    	for(Cliente cliente : modeloDao.ConsultaAllClientes()) {
+    		System.out.println();
+    		System.out.println("Id Cliente: "+cliente.getIdCliente()+" Nombre Cliente: "+cliente.getNombre() +
+    				" Telefono: " + cliente.getTelefono());
+    		System.out.println("Servicios: ");
+    		
+    		for(Servicio servicio : cliente.getServicios()) {
+    			System.out.println("Id Servicio: "+servicio.getIdServicio());
+    			System.out.println("Descripcion Servicio: "+servicio.getDescripcion());
+    			System.out.println("Fecha Servicio: "+servicio.getFecha());
+
+    		}
+    	}
     	
     	
     	
