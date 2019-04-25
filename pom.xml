@@ -13,13 +13,19 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.3.7.RELEASE</spring.version>
-		<hibernate.version>5.2.8.Final</hibernate.version>
-		<mysql.version>5.1.35</mysql.version>
 	</properties>
 
 	<dependencies>
 
+
+
+
+		<!-- Dependencias necesarias para pryecto de Spring JPA con MYSQL -->
+		
+
+
+		
+		
 
 		<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
 		<dependency>
@@ -45,13 +51,13 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
+			<version>4.3.7.RELEASE</version>
 		</dependency>
 
 		<dependency>

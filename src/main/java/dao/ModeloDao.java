@@ -1,13 +1,14 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
-import dominio2.Cliente;
-import dominio2.Servicio;
+import dominio.Cliente;
+import dominio.Servicio;
 
 @Transactional
 public class ModeloDao implements IModelo {
@@ -69,25 +70,26 @@ public class ModeloDao implements IModelo {
 	public void baja(Cliente cliente) {
 		// TODO Auto-generated method stub
 
-		
-	/*	
 		if (cliente.getServicios().size() > 0) {
 			System.out.println("Dentro del if");
 			
 			for (Servicio servicio : cliente.getServicios()) {
 				this.servicioDao.baja(servicio);
-				cliente.removeServicio(servicio);
-			System.out.println(servicio.getDescripcion());}
+			}
+			
+			cliente.setServicios(new ArrayList<Servicio>());
+			this.clienteDao.baja(cliente);
+
+
+		} else {
+
+			cliente.setServicios(new ArrayList<Servicio>());
+			System.out.println("fuera del if");
+			this.clienteDao.baja(cliente);
 
 		}
-		
-		System.out.println("fuera del if");
-		System.out.println(cliente.getServicios().size());
 
-		
-*/
-		this.clienteDao.baja(cliente);
-		
+
 	}
 
 	public Cliente consultaIdCliente(int idCliente) {

@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import dominio2.Servicio;
+import dominio.Servicio;
 
 @Repository
 @Transactional
@@ -52,8 +52,7 @@ public class ServicioDao implements IServicio {
 		em.remove(em.contains(servicio) ? servicio : em.merge(servicio));
 
 		
-	//	em.remove(servicio);
-
+ 
 	}
 	
 	

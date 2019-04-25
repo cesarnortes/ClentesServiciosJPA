@@ -21,7 +21,7 @@
 	<!-- beans necesarios para generar el valor de la variable de entityManager-->
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="packagesToScan" value="dominio2"/>
+		<property name="packagesToScan" value="dominio"/> <!-- es importnte la propiedad de packagesToScan que sera la ruta donde debe buscar las entidades de dominio (Clientes y servicios)-->
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter"></property>
 	</bean>
 

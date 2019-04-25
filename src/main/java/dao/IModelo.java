@@ -2,8 +2,8 @@ package dao;
 
  import java.util.List;
 
-import dominio2.Cliente;
-import dominio2.Servicio;
+import dominio.Cliente;
+import dominio.Servicio;
 
 public interface IModelo {
 	

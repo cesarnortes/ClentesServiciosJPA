@@ -2,7 +2,7 @@ package dao;
 
  import java.util.List;
 
-import dominio2.Servicio;
+import dominio.Servicio;
 
 public interface IServicio {
 	

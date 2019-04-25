@@ -1,4 +1,4 @@
-package dominio2;
+package dominio;
 
 import java.io.Serializable;
 import javax.persistence.*;
